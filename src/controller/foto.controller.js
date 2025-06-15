@@ -1,4 +1,4 @@
-import { FotoService } from '../service/foto.service.js'
+import { FotoService } from '../service/serviceJson/foto.service.js'
 
 
 export const FotoController = {
@@ -15,9 +15,7 @@ export const FotoController = {
         })
         
     },
-    getAdminAll: async (req, res) => {
-        
-    },
+
     searchById: async (req, res) => {
         const { id } = req.params
         const foto = await FotoService.searchById(id)
