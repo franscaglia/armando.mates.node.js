@@ -6,7 +6,7 @@ const fotoRouter = Router()
 fotoRouter.get("/all", FotoMongoController.getAll)
 fotoRouter.get("/foto/:id", FotoMongoController.searchById)
 fotoRouter.post("/agregarFoto", FotoMongoController.createOne)
-fotoRouter.put("/modificarFoto", FotoMongoController.modifyOne)
+fotoRouter.put("/modificarFoto/:id", FotoMongoController.modifyOne)
 fotoRouter.delete("/borrarFoto", FotoMongoController.deleteOne)
 
 export { fotoRouter}

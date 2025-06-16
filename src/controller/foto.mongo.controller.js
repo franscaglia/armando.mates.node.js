@@ -42,9 +42,30 @@ export const FotoMongoController = {
         })
     },
     modifyOne: async (req, res) => {
-        
+        try {
+			const { id } = req.params;
+			const dataActualizada = req.body;
+			const imagenActualizada = await FotoMongoService.modifyOne(id, dataActualizada);
+			if (!imagenActualizada) {
+				return res.status(404).json({ error: "imagen no encontrada" });
+			}
+			res.status(200).json({ user: imagenActualizada });
+		} catch (error) {
+			res.status(500).json({ error: "Error al actualizar la imagen" });
+            throw error;
+		}
     },
     deleteOne: async (req, res) => {
-        
+        try {
+			const { id } = req.params;
+			const imagenEliminada = await FotoMongoService.deleteOne(id);
+			if (!imagenEliminada) {
+				return res.status(404).json({ error: "imagen no encontrada" });
+			}
+			res.status(200).json({ message: "imagen eliminada correctamente" });
+		} catch (error) {
+			res.status(500).json({ error: "Error al eliminar la imagen" });
+            throw error;
+		}
     }
 }

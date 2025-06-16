@@ -4,8 +4,9 @@ import { AccountMongoController } from "../controller/account.mongo.controller.j
 const accountRouter = Router()
 
 accountRouter.get("/getAll", AccountMongoController.getAll)
+accountRouter.get("/cuenta/:id", AccountMongoController.searchById)
 accountRouter.post("/crearUsuario", AccountMongoController.createOne)
-accountRouter.put("/modificarMail", AccountMongoController.modifyMail)
-accountRouter.delete("borrarCuenta", AccountMongoController.deleteByMail)
+accountRouter.put("/modificarMail/:id", AccountMongoController.modifyOne)
+accountRouter.delete("borrarCuenta", AccountMongoController.deleteById)
 
 export { accountRouter }
