@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { FotoController } from "../controller/foto.controller.js";
+import { FotoMongoController } from "../controller/foto.mongo.controller.js";
 
 const fotoRouter = Router()
 

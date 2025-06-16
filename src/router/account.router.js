@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AccountController } from "../controller/account.controller.js";
+import { AccountMongoController } from "../controller/account.mongo.controller.js";
 
 const accountRouter = Router()
 
