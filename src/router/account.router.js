@@ -3,10 +3,10 @@ import { AccountController } from "../controller/account.controller.js";
 
 const accountRouter = Router()
 
-accountRouter.get("/usuario", AccountController.getUser)
-accountRouter.get("/getAll", AccountController.getAll)
-accountRouter.post("/crearUsuario", AccountController.createOne)
-accountRouter.put("/modificarMail", AccountController.modifyMail)
-accountRouter.delete("borrarCuenta", AccountController.deleteByMail)
+accountRouter.get("/getAll", AccountMongoController.getAll)
+accountRouter.get("/cuenta/:id", AccountMongoController.searchById)
+accountRouter.post("/crearUsuario", AccountMongoController.createOne)
+accountRouter.put("/modificarMail/:id", AccountMongoController.modifyOne)
+accountRouter.delete("borrarCuenta", AccountMongoController.deleteById)
 
 export { accountRouter }
