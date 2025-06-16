@@ -1,9 +1,9 @@
-import { FotoService } from '../service/serviceJson/foto.service.js'
+import { FotoMongoService } from '../service/foto.mongo.service.js'
 
 
-export const FotoController = {
+export const FotoMongoController = {
     getAll: async (req, res) => {
-        const fotos  = await FotoService.getAll()
+        const fotos  = await FotoMongoService.getAll()
         if(!fotos){
             return res.status(404).json({
                 message: " -- no se encontraron fotos"
@@ -18,7 +18,7 @@ export const FotoController = {
 
     searchById: async (req, res) => {
         const { id } = req.params
-        const foto = await FotoService.searchById(id)
+        const foto = await FotoMongoService.searchById(id)
         if(!foto){
             return res.status(404).json({
                 message: ` -- no se encontraron fotos ${id}`
@@ -31,7 +31,7 @@ export const FotoController = {
     },
     createOne: async (req, res) => {
         const { foto } = req.body
-        const fotoRes = await FotoService.createOne(foto)
+        const fotoRes = await FotoMongoService.createOne(foto)
 
         if(!req.file || !fotoRes){
             return res.status(400).json({ error: " -- no se subio ningun archibo"})

@@ -7,6 +7,7 @@ export const config = {
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_KEY: process.env.SUPABASE_KEY,
     MONGO_URI: process.env.MONGO_URI,
-    DB_PATH: "./src//db/fotos.db.json"
+    DB_PATH_FOTO: process.env.DB_PATH_FOTO,
+    DB_PATH_USER: process.env.DB_PATH_USER
 }
 
