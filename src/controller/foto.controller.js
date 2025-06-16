@@ -1,7 +1,7 @@
 import { FotoMongoService } from '../service/foto.mongo.service.js'
 
 
-export const FotoMongoController = {
+export const FotoController = {
     getAll: async (req, res) => {
         const fotos  = await FotoMongoService.getAll()
         if(!fotos){
