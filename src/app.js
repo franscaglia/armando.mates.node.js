@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 
 app.use("/", fotoRouter)
-app.use("/account", accountRouter())
+app.use("/account", accountRouter)
 
 app.listen(config.PORT, () => {
     console.log(` -- Armando Mates corriendo en la direccion : http://${config.HOST}:${config.PORT}/ `)
