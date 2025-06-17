@@ -1,18 +1,18 @@
 import { UserJson } from '../model/user.json.js'
 import { UserJsonRepository } from '../repo/user.json.repository.js'
 
-export const FotoJsonService = {
+export const UserJsonService = {
     getAll: async () => {
         const usersJson = await UserJsonRepository.getAll()
         if(!usersJson){ return null }
         return usersJson
     },
     createOne: async (data) => {
-        try{
+        try{            
             const user = { ...data }
-            const userModel = new UserJson(user.titulo, user.autor, user.anio)
+            const userModel = new UserJson(1, user.nombre, user.mail, user.password)
             const userRes = await UserJsonRepository.createOne(userModel)
-            if(!user) { return null }
+            if(!userRes) { return null }
             return userRes
         }catch(error){
             throw error
@@ -27,7 +27,7 @@ export const FotoJsonService = {
             await UserJsonRepository.saveAll(usersModify)
             return encontrado
         }catch(error){
-            throw error
+            return null
         }   
     }
 }

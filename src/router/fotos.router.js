@@ -7,6 +7,6 @@ fotoRouter.get("/all", FotoMongoController.getAll)
 fotoRouter.get("/foto/:id", FotoMongoController.searchById)
 fotoRouter.post("/agregarFoto", FotoMongoController.createOne)
 fotoRouter.put("/modificarFoto/:id", FotoMongoController.modifyOne)
-fotoRouter.delete("/borrarFoto", FotoMongoController.deleteOne)
+fotoRouter.delete("/borrarFoto/:id", FotoMongoController.deleteOne)
 
 export { fotoRouter}

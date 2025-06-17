@@ -1,4 +1,5 @@
 import { JsonHandler } from '../utils/json.handler.js'
+import { config } from '../config/config.js'
 
 const { DB_PATH_FOTO } = config;
 
@@ -19,7 +20,7 @@ export const FotoJsonRepository = {
         }
     },
     saveAll: async(fotos) => {
-        await JsonHandler.write(fotos)
+        await JsonHandler.write(DB_PATH_FOTO, fotos)
         return true
     }
 }

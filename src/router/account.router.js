@@ -7,6 +7,6 @@ accountRouter.get("/getAll", AccountMongoController.getAll)
 accountRouter.get("/cuenta/:id", AccountMongoController.searchById)
 accountRouter.post("/crearUsuario", AccountMongoController.createOne)
 accountRouter.put("/modificarMail/:id", AccountMongoController.modifyOne)
-accountRouter.delete("borrarCuenta", AccountMongoController.deleteById)
+accountRouter.delete("/borrarCuenta/:id", AccountMongoController.deleteById)
 
 export { accountRouter }

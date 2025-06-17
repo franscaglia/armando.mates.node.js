@@ -1,0 +1,77 @@
+###
+GET http://127.0.0.1:8080/account/getAll
+
+###
+POST http://127.0.0.1:8080/account/crearUsuario
+Content-Type: application/json
+
+{
+    "nombre": "francisco",
+    "mail": "fran@mail.com",
+    "password": 1506
+}
+
+###
+DELETE http://127.0.0.1:8080/account/borrarCuenta/1
+
+
+
+###
+GET http://127.0.0.1:8080/fotos/all
+
+###
+POST http://127.0.0.1:8080/fotos/agregarFoto
+Content-Type: application/json
+
+{
+    "titulo": "francisco",
+    "descripcion": "fran@mail.com"
+}
+
+###
+DELETE http://127.0.0.1:8080/fotos/borrarFoto/1
+
+
+
+
+
+
+
+
+###
+GET http://127.0.0.1:8080/account/cuenta/1
+###
+PUT http://127.0.0.1:8080/account/modificarMail/:id
+
+
+
+
+
+
+
+
+### 
+POST http://127.0.0.1:8080/libros/createone
+Content-Type: application/json
+
+{
+    "libro":{
+        "titulo": "naranja mecanica",
+        "autor": "kubrick",
+        "anio": 1985
+    }
+}
+
+
+###
+PUT http://127.0.0.1:8080/libros/modify/0
+Content-Type: application/json
+
+{
+    "titulo": "Eternauta",
+    "autor": "Oesterheld",
+    "anio": 1957
+}
+
+
+

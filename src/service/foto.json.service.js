@@ -10,7 +10,7 @@ export const FotoJsonService = {
     createOne: async (data) => {
         try{
             const foto = { ...data }
-            const fotoModel = new FotoJson(foto.titulo, foto.autor, foto.anio)
+            const fotoModel = new FotoJson(1, 2, foto.titulo, foto.descripcion, foto.fecha)
             const fotoRes = await FotoJsonRepository.createOne(fotoModel)
             if(!foto) { return null }
             return fotoRes
@@ -27,7 +27,7 @@ export const FotoJsonService = {
             await FotoJsonRepository.saveAll(fotosModify)
             return encontrado
         }catch(error){
-            throw error
+            return null
         }   
     }
 }

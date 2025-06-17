@@ -6,7 +6,7 @@ import { accountRouter } from "./router/account.router.js"
 const app = express()
 app.use(express.json())
 
-app.use("/", fotoRouter)
+app.use("/fotos", fotoRouter)
 app.use("/account", accountRouter)
 
 app.listen(config.PORT, () => {

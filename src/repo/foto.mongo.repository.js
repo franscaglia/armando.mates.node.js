@@ -1,25 +1,25 @@
-import { UserModel } from "../model/foto.mongo.js";
+import { FotoModel } from "../model/foto.mongo.js";
 
 export class FotoMongoRepository {
     async getAll () {
-        return await UserModel.find()
+        return await FotoModel.find()
     }
 
     async getById(id) {
-        return await UserModel.findById(id);
+        return await FotoModel.findById(id);
     }
 
     async create(FotoData) {
-        const foto = new UserModel(FotoData);
+        const foto = new FotoModel(FotoData);
         return await foto.save();
     }
 
     async update(id, updateData) {
-        return await UserModel.findByIdAndUpdate(id, updateData, { new: true }).exec();
+        return await FotoModel.findByIdAndUpdate(id, updateData, { new: true }).exec();
     }
 
     async delete(id) {
-        const result = await UserModel.findByIdAndDelete(id).exec();
+        const result = await FotoModel.findByIdAndDelete(id).exec();
         return result != null;
     }
 }
