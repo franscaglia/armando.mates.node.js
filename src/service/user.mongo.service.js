@@ -10,7 +10,9 @@ export const UserMongoService = {
       
     },
     createOne: async (cuenta) => {
-        return await UserJsonService.createOne(cuenta)
+        const mongoUser = await UserMongoRepository.create(cuenta)
+        const backUp =  await UserJsonService.createOne(cuenta)
+
     },
     modifyOne: async (id, dataActualizada) => {
 

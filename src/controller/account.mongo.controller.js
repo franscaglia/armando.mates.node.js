@@ -47,6 +47,7 @@ export const AccountMongoController = {
                 message: "cuenta subida correctamente",
             })
         }catch(error){
+            console.log(error)
             res.status(500).json({ error: " -- error al crear la cuenta" });
         }
     },
