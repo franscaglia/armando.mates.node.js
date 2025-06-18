@@ -1,14 +1,16 @@
 import { FotoJsonService } from './foto.json.service.js'
 import { FotoMongoRepository } from '../repo/foto.mongo.repository.js'
+import { FotoSupaRepository } from '../repo/foto.supabase.repository.js'
 
 const fotoRepo = new FotoMongoRepository()
 
 export const FotoMongoService = {
     getAll: async() => {
         try{    
-            const fotos = await fotoRepo.getAll()
-            if(!fotos){ throw new Error(" -- no se encontraron fotos")}
-            return fotos
+            const fotosSupa = FotoSupaRepository.getAll()
+            const fotosMongo = await fotoRepo.getAll()
+            if(!fotosMongo){ throw new Error(" -- no se encontraron fotos")}
+            return fotosMongo
         }catch(error){
             throw new Error(" -- error buscando en mongo")
         }
@@ -25,7 +27,7 @@ export const FotoMongoService = {
     createOne: async(foto) => {
         try{
             const mongoFoto = await fotoRepo.create(foto) 
-            if(!mongoFoto) { throw new Error(`-- no se pudo crear la foto`) }
+            if(!mongoFoto) { throw new Error(`-- no se pudo crear la foto en mongo`) }
             const backUp = await FotoJsonService.createOne(mongoFoto._id, foto)
             return mongoFoto
         }catch(error){

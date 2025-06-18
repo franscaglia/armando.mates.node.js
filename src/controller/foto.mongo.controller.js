@@ -38,10 +38,10 @@ export const FotoMongoController = {
     },
     createOne: async (req, res) => {
         try{
-            const file = req.file
-            const { titulo, descripcion } = req.body      
+            const file = req.file   
             const supaFoto = await FotoSupaService.createOne(file)
-            const foto = {idSupabase: supaFoto, titulo : titulo, descripcion : descripcion}
+
+            const foto = {idSupabase: supaFoto, titulo : req.titulo, descripcion : req.descripcion}
             const fotoRes = await FotoMongoService.createOne(foto)
             if(!fotoRes){
                 return res.status(400).json({ error: " -- error al crear la foto"})
