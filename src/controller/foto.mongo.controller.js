@@ -3,66 +3,83 @@ import { FotoMongoService } from '../service/foto.mongo.service.js'
 
 export const FotoMongoController = {
     getAll: async (req, res) => {
-        const fotos  = await FotoMongoService.getAll()
-        if(!fotos){
-            return res.status(404).json({
-                message: " -- no se encontraron fotos"
+        try{
+            const fotos  = await FotoMongoService.getAll()
+            if(!fotos){
+                return res.status(404).json({
+                    message: " -- no se encontraron fotos"
+                })
+            }
+            return res.status(200).json({
+                message:" -- Se econtraron fotos",
+                payload: { fotos }
             })
+        }catch(error){
+            res.status(500).json({ error: " -- error al obtener las fotos" });
         }
-        return res.status(200).json({
-            message:" -- carga exitosa",
-            payload: { fotos }
-        })
-        
     },
 
     searchById: async (req, res) => {
-        const { id } = req.params
-        const foto = await FotoMongoService.searchById(id)
-        if(!foto){
-            return res.status(404).json({
-                message: ` -- no se encontraron fotos ${id}`
+        try{
+            const id = req.params.id
+            const foto = await FotoMongoService.searchById(id)
+            if(!foto){
+                return res.status(404).json({
+                    message: ` -- no se encontraron fotos de id ${id}`
+                })
+            }
+            return res.status(200).json({
+                message:" -- Se encontro la foto",
+                payload: foto
             })
+        }catch(error){
+            res.status(500).json({ error: " -- error al buscar por ID" });
         }
-        return res.status(200).json({
-            message:" -- carga exitosa",
-            payload: foto
-        })
     },
     createOne: async (req, res) => {
-        const foto = req.body     
-        const fotoRes = await FotoMongoService.createOne(foto)
-
-        if(!fotoRes){
-            return res.status(400).json({ error: " -- no se subio ningun archibo"})
+        try{
+            const foto = req.body            
+            const fotoRes = await FotoMongoService.createOne(foto)
+            if(!fotoRes){
+                return res.status(400).json({ error: " -- error al crear la foto"})
+            }
+            res.status(200).json({
+                message: " -- Se creo la foto exitosamnente",
+                payload: fotoRes
+            })
+        }catch(error){
+            res.status(500).json({ error: " -- error al crear la foto" });
         }
-        res.status(200).json({
-            message: "Imagen subida correctamente",
-        })
     },
     modifyOne: async (req, res) => {
         try {
-			const { id } = req.params;
-			const dataActualizada = req.body;
-			const imagenActualizada = await FotoMongoService.modifyOne(id, dataActualizada);
-			if (!imagenActualizada) {
-				return res.status(404).json({ error: "imagen no encontrada" });
-			}
-			res.status(200).json({ user: imagenActualizada });
-		} catch (error) {
-			res.status(500).json({ error: "Error al actualizar la imagen" });
-		}
+            const id = req.params.id;
+            const dataActualizada = req.body;
+            const fotoActualizada = await FotoMongoService.modifyOne(id, dataActualizada);
+            if (!fotoActualizada || fotoActualizada == null) {
+                return res.status(404).json({ error: " -- foto no encontrada" });
+            }
+            res.status(200).json({
+                message: "Foto modificada correctamente",
+                payload: fotoActualizada 
+            });
+        } catch (error) {
+            res.status(500).json({ error: " -- error al actualizar la foto" });
+        }
     },
     deleteOne: async (req, res) => {
         try {
-			const { id } = req.params;
-			const imagenEliminada = await FotoMongoService.deleteOne(id);
-			if (!imagenEliminada) {
-				return res.status(404).json({ error: " -- no se encontro la imagen" });
-			}
-			res.status(200).json({ message: "imagen eliminada correctamente" });
-		} catch (error) {
-			res.status(500).json({ error: " -- error al eliminar la imagen" });
-		}
+            const id = req.params.id;
+            const fotoEliminada = await FotoMongoService.deleteOne(id);
+            if (!fotoEliminada || fotoEliminada == null) {
+                return res.status(404).json({ error: "foto no encontrada" });
+            }
+            res.status(200).json({
+                message: "Foto eliminada correctamente",
+                payload: fotoEliminada
+            });
+        } catch (error) {
+            res.status(500).json({ error: " -- error al eliminar la foto" });
+        }
     }
 }

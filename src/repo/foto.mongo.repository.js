@@ -19,7 +19,6 @@ export class FotoMongoRepository {
     }
 
     async delete(id) {
-        const result = await FotoModel.findByIdAndDelete(id).exec();
-        return result != null;
+        return await FotoModel.findByIdAndDelete(id).exec();
     }
 }

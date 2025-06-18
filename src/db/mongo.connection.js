@@ -16,11 +16,11 @@ class MongoConnection {
 				dbName: "armandoMates",
 			});
 			this.connection = mongoose.connection;
-			console.log(" -- conexion establecida con Armando Mates");
+			console.log(" -- Conexion establecida con MongoDB - Armando Mates");
 
 			return this.connection;
 		} catch (e) {
-			console.error(" -- no se puedo conectar a Armando Mates");
+			console.error(" -- no se puedo conectar a Armando Mates de MongoDB");
 			throw e;
 		}
 	}

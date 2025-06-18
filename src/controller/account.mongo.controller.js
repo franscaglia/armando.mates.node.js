@@ -4,15 +4,15 @@ import { UserMongoService } from '../service/user.mongo.service.js'
 export const AccountMongoController = {
     getAll: async (req, res) => {
         try{
-            const Cuentas  = await UserMongoService.getAll()
-            if(!Cuentas){
+            const cuentas  = await UserMongoService.getAll()
+            if(!cuentas){
                 return res.status(404).json({
                     message: " -- no se encontraron usuarios"
                 })
             }
             return res.status(200).json({
-                message:" -- Se econtraron usuarios : ",
-                payload: { Cuentas }
+                message:" -- Se econtraron usuarios",
+                payload: { cuentas }
             })
         }catch(error){
             res.status(500).json({ error: " -- error al obtener los usuarios" });
@@ -21,7 +21,7 @@ export const AccountMongoController = {
 
     searchById: async (req, res) => {
         try{
-            const { id } = req.params
+            const id = req.params.id
             const cuenta = await UserMongoService.searchById(id)
             if(!cuenta){
                 return res.status(404).json({
@@ -29,7 +29,7 @@ export const AccountMongoController = {
                 })
             }
             return res.status(200).json({
-                message:" -- carga exitosa",
+                message:" -- Se encontro usuario",
                 payload: cuenta
             })
         }catch(error){
@@ -41,25 +41,28 @@ export const AccountMongoController = {
             const cuenta = req.body
             const cuentaRes = await UserMongoService.createOne(cuenta)
             if(!cuentaRes){
-                return res.status(400).json({ error: " -- no se subio ningun archibo"})
+                return res.status(400).json({ error: " -- error al crear usuario"})
             }
             res.status(200).json({
-                message: "cuenta subida correctamente",
+                message: " -- Se creo el usuario exitosamnente",
+                payload: cuentaRes
             })
         }catch(error){
-            console.log(error)
             res.status(500).json({ error: " -- error al crear la cuenta" });
         }
     },
     modifyOne: async (req, res) => {
         try {
-            const { id } = req.params;
+            const id = req.params.id;
             const dataActualizada = req.body;
             const cuentaActualizada = await UserMongoService.modifyOne(id, dataActualizada);
-            if (!cuentaActualizada) {
-                return res.status(404).json({ error: "cuenta no encontrada" });
+            if (!cuentaActualizada || cuentaActualizada == null) {
+                return res.status(404).json({ error: " -- cuenta no encontrada" });
             }
-            res.status(200).json({ user: cuentaActualizada });
+            res.status(200).json({
+                message: "Usuario modificado correctamente",
+                payload: cuentaActualizada 
+            });
         } catch (error) {
             res.status(500).json({ error: " -- error al actualizar la cuenta" });
         }
@@ -71,7 +74,10 @@ export const AccountMongoController = {
             if (!cuentaEliminada || cuentaEliminada == null) {
                 return res.status(404).json({ error: "cuenta no encontrada" });
             }
-            res.status(200).json({ message: "cuenta eliminada correctamente" });
+            res.status(200).json({
+                message: "Cuenta eliminada correctamente",
+                payload: cuentaEliminada
+            });
         } catch (error) {
             res.status(500).json({ error: " -- error al eliminar la cuenta" });
         }

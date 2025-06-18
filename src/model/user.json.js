@@ -1,8 +1,8 @@
 export class UserJson {
-    constructor(id, nombre, mail, password){
-        this.id = id,
+    constructor(idMongo, nombre, email, password){
+        this.idMongo  = idMongo,
         this.nombre = nombre,
-        this.mail = mail,
+        this.email = email,
         this.password = password
     }
 }

@@ -10,7 +10,7 @@ export const FotoJsonService = {
     createOne: async (data) => {
         try{
             const foto = { ...data }
-            const fotoModel = new FotoJson(1, 2, foto.titulo, foto.descripcion, foto.fecha)
+            const fotoModel = new FotoJson(foto.idMongo, foto.idSupabase, 2, foto.titulo, foto.descripcion, foto.fecha)
             const fotoRes = await FotoJsonRepository.createOne(fotoModel)
             if(!foto) { return null }
             return fotoRes
@@ -21,9 +21,9 @@ export const FotoJsonService = {
     deleteOne: async (id) => {
         try{
             const fotos = await FotoJsonRepository.getAll()
-            const encontrado = fotos.find((foto) => foto.id === Number(id))
+            const encontrado = fotos.find((foto) => foto.id === id.toString())
             if(!encontrado) { throw new Error(` -- error al querer eliminar foto id : ${id}`) }
-            const fotosModify = fotos.filter((foto) => foto.id !== Number(id))
+            const fotosModify = fotos.filter((foto) => foto.id !== id.toString())
             await FotoJsonRepository.saveAll(fotosModify)
             return encontrado
         }catch(error){

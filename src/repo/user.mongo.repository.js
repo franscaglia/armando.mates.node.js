@@ -19,7 +19,6 @@ export class UserMongoRepository {
     }
 
     async delete(id) {
-        const result = await UserModel.findByIdAndDelete(id).exec();
-        return result != null;
+        return await UserModel.findByIdAndDelete(id).exec();
     }
 }

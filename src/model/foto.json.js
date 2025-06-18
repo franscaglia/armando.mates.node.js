@@ -1,9 +1,8 @@
 export class FotoJson{
-    constructor (id, idSupabase, titulo, descripcion, fecha){
-        this.id = id,
+    constructor (idMongo, idSupabase, titulo, descripcion, fecha){
+        this.idMongo = idMongo,
         this.idSupabase = idSupabase,
         this.titulo = titulo,
-        this.descripcion = descripcion,
-        this.fecha = fecha
+        this.descripcion = descripcion
     }
 }
