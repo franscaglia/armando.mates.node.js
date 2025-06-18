@@ -1,13 +1,11 @@
 import { FotoJsonService } from './foto.json.service.js'
 import { FotoMongoRepository } from '../repo/foto.mongo.repository.js'
-import { FotoSupaRepository } from '../repo/foto.supabase.repository.js'
 
 const fotoRepo = new FotoMongoRepository()
 
 export const FotoMongoService = {
     getAll: async() => {
         try{    
-            const fotosSupa = FotoSupaRepository.getAll()
             const fotosMongo = await fotoRepo.getAll()
             if(!fotosMongo){ throw new Error(" -- no se encontraron fotos")}
             return fotosMongo

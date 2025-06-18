@@ -1,9 +1,22 @@
 import { UserMongoRepository } from '../repo/user.mongo.repository.js'
 import { UserJsonService } from '../service/user.json.service.js'
+import { userToken } from '../utils/jwt.js'
+import { config } from '../config/config.js'
 
 const userRepo = new UserMongoRepository()
 
 export const UserMongoService = {
+    login: async (data) => {
+        try{
+            const { nombre, password } = data
+            const { ADMIN, ADMIN_PASS } = config
+            const esValido = (( ADMIN === nombre ) && ( ADMIN_PASS === password ))
+            if(!esValido) { return null }
+            return userToken({ nombre, rol: "admin" })
+        }catch(error){
+            throw new Error(" -- error en el login")
+        }
+    },
     getAll: async () => {
         try{    
             const users = await userRepo.getAll()

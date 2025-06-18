@@ -2,6 +2,20 @@ import { UserMongoService } from '../service/user.mongo.service.js'
 
 
 export const AccountMongoController = {
+    login: async (req, res) => {
+        try{
+            const { nombre, password } = req.body
+            const data = { nombre, password }
+            const token = await UserMongoService.login(data)
+            if(!token) { throw new Error(" -- error al validar las credenciales")}
+            return res.status(200).json({
+                message: " -- token generado con exito",
+                token: token
+             })
+        }catch(error){
+            throw new Error(" -- error al validar las credenciales")
+        }
+    },
     getAll: async (req, res) => {
         try{
             const cuentas  = await UserMongoService.getAll()
