@@ -13,7 +13,7 @@ export const AccountMongoController = {
                 token: token
              })
         }catch(error){
-            throw new Error(" -- error al validar las credenciales")
+            res.status(500).json({ error: " -- error al validar credenciales" });
         }
     },
     getAll: async (req, res) => {

@@ -1,4 +1,5 @@
-import { FotoSupaRepository } from "../repo/foto.supabase.repository.js"
+import { FotoSupaRepository } from "../repo/foto.supabase.repository.js" 
+
 
 export const FotoSupaService = {
     getAll: async () => {

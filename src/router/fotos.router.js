@@ -8,7 +8,7 @@ const upload = multer({ storage })
 
 const fotoRouter = Router()
 
-fotoRouter.get("/all", tokenAuth,FotoMongoController.getAll)
+fotoRouter.get("/all",FotoMongoController.getAll)
 fotoRouter.get("/foto/:id", FotoMongoController.searchById)
 fotoRouter.post("/agregarFoto", upload.single("file"), FotoMongoController.createOne)
 fotoRouter.put("/modificarFoto/:id", FotoMongoController.modifyOne)

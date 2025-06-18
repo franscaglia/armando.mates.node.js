@@ -5,19 +5,35 @@ const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
 export const FotoSupaRepository = {
     getAll: async () => {
-        const { data, error } = await supabase.storage
+        const { data: fotos, error } = await supabase.storage
             .from('fran')
             .list('', {
                 limit: 100,
                 offset: 0,
                 sortBy: { column: 'created_at', order: 'desc' }
-            })
+            });
+
         if (error) {
-            console.error(" -- error alobtenerfotos en Supabase:", error)
-            throw error
+            console.error(" -- error al obtener fotos en Supabase:", error);
+            throw error;
         }
-        return data
-    },
+
+        const fotosConUrl = await Promise.all(
+            fotos.map(async (foto) => {
+                const { data, error: errorUrl } = await supabase
+                    .storage
+                    .from("fran")
+                    .createSignedUrl(foto.name, 60 * 60);
+
+                return {
+                    ...foto,
+                    urlFirmado: errorUrl ? null : data.signedUrl,
+                };
+            })
+        );
+
+    return fotosConUrl;
+},
     searchById: async (idSupabase) => {
         try {
             const { data, error } = await supabase

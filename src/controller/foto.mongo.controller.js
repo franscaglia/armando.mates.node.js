@@ -44,8 +44,10 @@ export const FotoMongoController = {
         try{
             const file = req.file   
             const supaFoto = await FotoSupaService.createOne(file)
+            
+            const { titulo, descripcion } = req.body;
 
-            const fotoMongo = {idSupabase: supaFoto, titulo : req.titulo, descripcion : req.descripcion}
+            const fotoMongo = { idSupabase: supaFoto, titulo, descripcion };
             const fotoRes = await FotoMongoService.createOne(fotoMongo)
 
             if(!fotoRes){

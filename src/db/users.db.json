@@ -1,2 +1,14 @@
 [
+  {
+    "idMongo": "685323d2093fcdd75c4216ab",
+    "nombre": "terminator",
+    "email": "eeee@mail.com",
+    "password": 1145
+  },
+  {
+    "idMongo": "685323e7093fcdd75c4216ad",
+    "nombre": "tony",
+    "email": "laluna@mail.com",
+    "password": 1234
+  }
 ]

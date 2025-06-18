@@ -1,18 +1,39 @@
-### busca todos los usuarios
+### ----------------------------------------------------------------LOGIN---------------
+
+
+###   LOGIN
+POST http://127.0.0.1:8080/account/login
+Content-Type: application/json
+
+{
+  "nombre": "fran",
+  "password": "olivia1506"
+}
+
+### -----------------------------------------------------------------USER---------------
+
+### Obtener todos los usuarios con autenticación
 GET http://127.0.0.1:8080/account/getAll
+Authorization: Bearer 
+
+### -----------------------------------------------------------------------------------
 
 ### busca por ID de mongo
-GET http://127.0.0.1:8080/account/usuario/68523d87526f042b15c2b104
+GET http://127.0.0.1:8080/account/usuario/685323e7093fcdd75c4216ad
+
+### -----------------------------------------------------------------------------------
 
 ### crea un elemento en mongo + JSON (service + repo + model + DB)
 POST http://127.0.0.1:8080/account/crearUsuario
 Content-Type: application/json
 
 {
-    "nombre": "terminator",
-    "email": "eeee@mail.com",
-    "password": 1145
+    "nombre": "tony",
+    "email": "laluna@mail.com",
+    "password": 1234
 }
+
+### -----------------------------------------------------------------------------------
 
 ### modificar una cuenta por id
 PUT http://127.0.0.1:8080/account/modificarMail/6852469e308dcdd437634302
@@ -22,6 +43,8 @@ Content-Type: application/json
     "email": "fegocosa@mail.com"
 }
 
+### -----------------------------------------------------------------------------------                            
+
 ### elimina una cuenta por id
 DELETE http://127.0.0.1:8080/account/borrarCuenta/68524841ddf09a9d81ee1ad4
 
@@ -29,28 +52,23 @@ DELETE http://127.0.0.1:8080/account/borrarCuenta/68524841ddf09a9d81ee1ad4
 
 
 
+
+### -------------------FOTOS------------------------------------------------------------  
+
 ### obtener todas las fotos
 GET http://127.0.0.1:8080/fotos/all
 
-### 
-GET http://127.0.0.1:8080/fotos/foto/685251618f7d0228d9c3b719
-
-###
-POST http://127.0.0.1:8080/fotos/agregarFoto
-Content-Type: application/json
-
-{
-    "titulo": "francisco",
-    "descripcion": "fran@mail.com"
-}
+### -----------------------------------------------------------------------------------   
 
 ### 
-PUT http://127.0.0.1:8080/fotos/modificarFoto/685251618f7d0228d9c3b719
-Content-Type: application/json
+GET http://127.0.0.1:8080/fotos/foto/68532f1948ab4308b3402a83
 
-{
-    "descripcion": "nueva descripcion"
-}
+### -----------------------------------------------------------------------------------   
 
 ###
-DELETE http://127.0.0.1:8080/fotos/borrarFoto/685251618f7d0228d9c3b719
+DELETE http://127.0.0.1:8080/fotos/borrarFoto/68526c4fb58e525c0bd2d992
+
+
+
+### -----------------------------------------------------------------------------------   
+

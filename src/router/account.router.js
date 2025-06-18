@@ -4,7 +4,7 @@ import { tokenAuth } from "../middle/auth.jwt.js";
 
 const accountRouter = Router()
 
-accountRouter.get("/login", AccountMongoController.login)
+accountRouter.post("/login", AccountMongoController.login)
 
 accountRouter.get("/getAll", tokenAuth, AccountMongoController.getAll)
 accountRouter.get("/usuario/:id", AccountMongoController.searchById)
