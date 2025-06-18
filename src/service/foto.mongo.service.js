@@ -24,13 +24,9 @@ export const FotoMongoService = {
     },
     createOne: async(foto) => {
         try{
-            const fotoSupabase = {
-                ...foto,
-                idSupabase: 12
-            }
-            const mongoFoto = await fotoRepo.create(fotoSupabase) 
+            const mongoFoto = await fotoRepo.create(foto) 
             if(!mongoFoto) { throw new Error(`-- no se pudo crear la foto`) }
-            const backUp = await FotoJsonService.createOne(mongoFoto._id, 15, foto)
+            const backUp = await FotoJsonService.createOne(mongoFoto._id, foto)
             return mongoFoto
         }catch(error){
             throw new Error(`-- error al crear foto`)

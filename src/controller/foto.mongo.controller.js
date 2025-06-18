@@ -1,5 +1,5 @@
 import { FotoMongoService } from '../service/foto.mongo.service.js'
-
+import { FotoSupaService } from '../service/foto.supabase.service.js'
 
 export const FotoMongoController = {
     getAll: async (req, res) => {
@@ -38,7 +38,10 @@ export const FotoMongoController = {
     },
     createOne: async (req, res) => {
         try{
-            const foto = req.body            
+            const file = req.file
+            const { titulo, descripcion } = req.body      
+            const supaFoto = await FotoSupaService.createOne(file)
+            const foto = {idSupabase: supaFoto, titulo : titulo, descripcion : descripcion}
             const fotoRes = await FotoMongoService.createOne(foto)
             if(!fotoRes){
                 return res.status(400).json({ error: " -- error al crear la foto"})

@@ -1,8 +1,0 @@
-  const user = await UserMongoRepository.getById(id)
-        if(!user) { return null }
-        return user
-
-
-        const users = await UserMongoRepository.getAll()
-        if(!users){ return null }
-        return users
