@@ -4,7 +4,7 @@ Rutas deploy :
 
 Get all : https://armando-mates-node-js.onrender.com/account/getAll
 
-Get usuario : https://armando-mates-node-js.onrender.com/account/usuario/6854939b3901b331d78cd38c
+Get usuario : https://armando-mates-node-js.onrender.com/account/usuario/685c7fa739320512a92dd430
 
 Delete usuario :https://armando-mates-node-js.onrender.com/account/borrarCuenta/685c7fa739320512a92dd430
 
