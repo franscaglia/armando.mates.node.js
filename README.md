@@ -10,7 +10,7 @@ Delete usuario :https://armando-mates-node-js.onrender.com/account/borrarCuenta/
 
 Get All Fotos : https://armando-mates-node-js.onrender.com/fotos/all
 
-Get Foto : https://armando-mates-node-js.onrender.com/fotos/foto/6853653346a6dd051ba1e79d
+Get Foto : https://armando-mates-node-js.onrender.com/fotos/foto/685368c4ba8b67926b97cd29
 
 Delete foto : https://armando-mates-node-js.onrender.com/fotos/borrarFoto/68526c4fb58e525c0bd2d992
 
