@@ -14,12 +14,12 @@ Content-Type: application/json
 
 ### Obtener todos los usuarios con autenticación
 GET http://127.0.0.1:8080/account/getAll
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJmcmFuIiwicm9sIjoiYWRtaW4iLCJpYXQiOjE3NTAzNzMwNjUsImV4cCI6MTc1MDM3MzI0NX0.LO5md4X87Zl82QodLSaAh6RbpSd-MHFFK9A8sTXo9hQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJmcmFuIiwicm9sIjoiYWRtaW4iLCJpYXQiOjE3NTA4OTIzMTgsImV4cCI6MTc1MDg5MjQ5OH0.TJFu4fxLmXwshxa5W-U3hSlZfdb7AnExMoXXLevelVs
 
 ### -----------------------------------------------------------------------------------
 
 ### busca por ID de mongo
-GET http://127.0.0.1:8080/account/usuario/685323e7093fcdd75c4216ad
+GET http://127.0.0.1:8080/account/usuario/6854939b3901b331d78cd38c
 
 ### -----------------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ Content-Type: application/json
 ### -----------------------------------------------------------------------------------                            
 
 ### elimina una cuenta por id
-DELETE http://127.0.0.1:8080/account/borrarCuenta/68524841ddf09a9d81ee1ad4
+DELETE http://127.0.0.1:8080/account/borrarCuenta/685c7fa739320512a92dd430
 
 
 
@@ -61,7 +61,7 @@ GET http://127.0.0.1:8080/fotos/all
 ### -----------------------------------------------------------------------------------   
 
 ### 
-GET http://127.0.0.1:8080/fotos/foto/68532f1948ab4308b3402a83
+GET http://127.0.0.1:8080/fotos/foto/6853653346a6dd051ba1e79d
 
 ### -----------------------------------------------------------------------------------   
 

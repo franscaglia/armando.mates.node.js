@@ -22,5 +22,11 @@
     "nombre": "Rubinstein",
     "email": "stenwey@mail.com",
     "password": 123344
+  },
+  {
+    "idMongo": "685c7fa739320512a92dd430",
+    "nombre": "Rubinstein",
+    "email": "stenwey@mail.com",
+    "password": 123344
   }
 ]

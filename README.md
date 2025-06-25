@@ -1,8 +1,24 @@
-Deploy corriendo en:        https://armando-mates-node-js.onrender.com      
+Deploy corriendo en:        https://armando-mates-node-js.onrender.com   
+
+Rutas deploy : 
+
+Get all : https://armando-mates-node-js.onrender.com/account/getAll
+
+Get usuario : https://armando-mates-node-js.onrender.com/account/usuario/6854939b3901b331d78cd38c
+
+Delete usuario :https://armando-mates-node-js.onrender.com/account/borrarCuenta/685c7fa739320512a92dd430
+
+Get All Fotos : https://armando-mates-node-js.onrender.com/fotos/all
+
+Get Foto : https://armando-mates-node-js.onrender.com/fotos/foto/6853653346a6dd051ba1e79d
+
+Delete foto : https://armando-mates-node-js.onrender.com/fotos/borrarFoto/68526c4fb58e525c0bd2d992
+
+
 
 Iniciar con npm install --> seguido de ---> npm run dev
 
-DETALLES DE LAS RUTAS:
+Detalles de las rutas TEST:
 
 login: 
 
