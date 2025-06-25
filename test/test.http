@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ### Obtener todos los usuarios con autenticación
 GET http://127.0.0.1:8080/account/getAll
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJmcmFuIiwicm9sIjoiYWRtaW4iLCJpYXQiOjE3NTAzNzMwNjUsImV4cCI6MTc1MDM3MzI0NX0.LO5md4X87Zl82QodLSaAh6RbpSd-MHFFK9A8sTXo9hQ
 
 ### -----------------------------------------------------------------------------------
 
@@ -28,9 +28,9 @@ POST http://127.0.0.1:8080/account/crearUsuario
 Content-Type: application/json
 
 {
-    "nombre": "tony",
-    "email": "laluna@mail.com",
-    "password": 1234
+    "nombre": "Rubinstein",
+    "email": "stenwey@mail.com",
+    "password": 123344
 }
 
 ### -----------------------------------------------------------------------------------

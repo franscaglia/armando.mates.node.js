@@ -10,5 +10,17 @@
     "nombre": "tony",
     "email": "laluna@mail.com",
     "password": 1234
+  },
+  {
+    "idMongo": "685368abba8b67926b97cd27",
+    "nombre": "toony",
+    "email": "lalunalunera@mail.com",
+    "password": 12344
+  },
+  {
+    "idMongo": "6854939b3901b331d78cd38c",
+    "nombre": "Rubinstein",
+    "email": "stenwey@mail.com",
+    "password": 123344
   }
 ]
