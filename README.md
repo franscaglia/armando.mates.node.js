@@ -9,7 +9,7 @@ El backend está desplegado en Render: https://armando-mates-node-js.onrender.co
 Instalación
 
 ```bash
-git clone https://github.com/tu-usuario/armando-mates-node-js.git
+git clone https://github.com/franscaglia/armando.mates.node.js.git
 npm install
 npm run dev
 Requiere Node.js y MongoDB configurado correctamente para entorno local.
