@@ -1,49 +1,68 @@
-Deploy corriendo en:        https://armando-mates-node-js.onrender.com   
+Armando Mates - API REST en Node.js + MongoDB
 
-Rutas deploy : 
+Este proyecto es una API RESTful desarrollada en Node.js con Express y MongoDB, que gestiona cuentas de usuario y fotos. Permite autenticación con tokens, creación y gestión de usuarios, así como almacenamiento y eliminación de fotos.
 
-Get all : https://armando-mates-node-js.onrender.com/account/getAll
+El backend está desplegado en Render: https://armando-mates-node-js.onrender.com
 
-Get usuario : https://armando-mates-node-js.onrender.com/account/usuario/685c7fa739320512a92dd430
+---
 
-Delete usuario :https://armando-mates-node-js.onrender.com/account/borrarCuenta/685c7fa739320512a92dd430
+Instalación
 
-Get All Fotos : https://armando-mates-node-js.onrender.com/fotos/all
+```bash
+git clone https://github.com/tu-usuario/armando-mates-node-js.git
+npm install
+npm run dev
+Requiere Node.js y MongoDB configurado correctamente para entorno local.
 
-Get Foto : https://armando-mates-node-js.onrender.com/fotos/foto/685368c4ba8b67926b97cd29
+RUTAS DE PRUEBA
+LOGIN
+POST http://127.0.0.1:8080/account/login
+Genera un token de autenticación para el usuario.
 
-Delete foto : https://armando-mates-node-js.onrender.com/fotos/borrarFoto/68526c4fb58e525c0bd2d992
+USUARIOS
+Obtener todos los usuarios (requiere token):
+GET http://127.0.0.1:8080/account/getAll
+
+Obtener usuario por ID:
+GET http://127.0.0.1:8080/account/usuario/:id
+
+Crear nuevo usuario:
+POST http://127.0.0.1:8080/account/crearUsuario
+
+Modificar email de usuario:
+PUT http://127.0.0.1:8080/account/modificarMail/:id
+
+Eliminar usuario por ID:
+DELETE http://127.0.0.1:8080/account/borrarCuenta/:id
+
+FOTOS
+Obtener todas las fotos:
+GET http://127.0.0.1:8080/fotos/all
+
+Obtener una foto por ID:
+GET http://127.0.0.1:8080/fotos/foto/:id
+
+Eliminar una foto por ID:
+DELETE http://127.0.0.1:8080/fotos/borrarFoto/:id
 
 
+RUTAS EN PRODUCCION (RENDER)
+USUARIOS
+GET: Get All Usuarios
+GET: Get Usuario por ID
+DELETE: Eliminar Usuario
 
-Iniciar con npm install --> seguido de ---> npm run dev
+FOTOS
+GET: Get All Fotos
+GET: Get Foto por ID
+DELETE: Eliminar Foto
 
-Detalles de las rutas TEST:
-
-login: 
-
-POST http://127.0.0.1:8080/account/login: generacion de un token
-
-user: 
-
-GET http://127.0.0.1:8080/account/getAll: Obtencion de todos los usuarios con el uso de una autenticación
-
-GET http://127.0.0.1:8080/account/usuario/685323e7093fcdd75c4216ad: busqueda de un usuario por ID en una base de datos de mongo
-
-POST http://127.0.0.1:8080/account/crearUsuario: creacion de una cuenta de usuario
-
-PUT http://127.0.0.1:8080/account/modificarMail/6852469e308dcdd437634302: busqueda y modificion de una cuenta a partir de su ID
-
-DELETE http://127.0.0.1:8080/account/borrarCuenta/68524841ddf09a9d81ee1ad4: busqueda y eliminacion de una cuenta a partir de su ID
-
-fotos:
-
-GET http://127.0.0.1:8080/fotos/all: Obtencion de todas las fotos
-
-GET http://127.0.0.1:8080/fotos/foto/68532f1948ab4308b3402a83: busqueda de una foto mediante su ID
-
-DELETE http://127.0.0.1:8080/fotos/borrarFoto/68526c4fb58e525c0bd2d992: busqueda y eliminacion de una foto a partir de su ID
-
+TECNOLOGIAS UTILIZADAS
+Node.js
+Express
+MongoDB + Mongoose
+JWT (para autenticación)
+Render (deploy)
 
 
 
